@@ -46,8 +46,8 @@ module Geocoder
     #
     def latitude_degree_distance(units = nil)
       units ||= Geocoder.config.units
-      units ||= :mi
-      2 * Math::PI * earth_radius(units) / 360
+      #this is a hack... 
+      2 * Math::PI * earth_radius(:mi) / 360
     end
 
     ##
@@ -56,8 +56,8 @@ module Geocoder
     #
     def longitude_degree_distance(latitude, units = nil)
       units ||= Geocoder.config.units
-      units ||= :mi
-      latitude_degree_distance(units) * Math.cos(to_radians(latitude))
+      #this is a hack...
+      latitude_degree_distance(:mi) * Math.cos(to_radians(latitude))
     end
 
     ##
